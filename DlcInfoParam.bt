@@ -16,15 +16,17 @@ uint FileSize;
 LittleEndian();
 
 int Version;
-uint DLC_Count;
+uint Count;
 uint64 FirstPointer <hidden= true>;
 
 local int Pos;
 
-uint64 DLC_TypePointer;
+struct{
+
+uint64 dlcIdOffset;
 Pos = FTell();
-FSeek(Pos - 8 + DLC_TypePointer);
-string Type;
+FSeek(Pos - 8 + dlcIdOffset);
+string dlcID;
 FSeek(Pos);
 
 uint64 offset0;
@@ -46,15 +48,58 @@ string string2;
 FSeek(Pos);
 
 
-uint64 offset3;
-Pos = FTell();
-FSeek(Pos - 8 + offset3);
-string string3;
-FSeek(Pos);
+uint someindex1;
+uint someindex2;
 
+uint unk0;
+uint unk1;
+
+uint64 abc;
 
 uint64 offset4;
 Pos = FTell();
 FSeek(Pos - 8 + offset4);
 string string4;
 FSeek(Pos);
+
+uint64 unk4;
+
+uint64 offset5;
+Pos = FTell();
+FSeek(Pos - 8 + offset5);
+string string5;
+FSeek(Pos);
+
+
+uint64 offset6;
+Pos = FTell();
+FSeek(Pos - 8 + offset6);
+string string6;
+FSeek(Pos);
+
+uint64 offset7;
+Pos = FTell();
+FSeek(Pos - 8 + offset7);
+string string7;
+FSeek(Pos);
+
+uint64 offset8;
+Pos = FTell();
+FSeek(Pos - 8 + offset8);
+string string8;
+FSeek(Pos);
+
+uint64 offset9;
+Pos = FTell();
+FSeek(Pos - 8 + offset9);
+string string9;
+FSeek(Pos);
+
+uint64 offset10;
+Pos = FTell();
+FSeek(Pos - 8 + offset10);
+string string10;
+FSeek(Pos);
+
+
+}DLC[Count] <optimize=false>;

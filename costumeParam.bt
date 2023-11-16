@@ -1,0 +1,44 @@
+//------------------------------------------------
+//--- 010 Editor v13.0.1 Binary Template
+//
+//      File: 
+//   Authors: Hydra, Lilith, Meouch
+//   Version: 
+//   Purpose: 
+//  Category: 
+// File Mask: 
+//  ID Bytes: 
+//   History: 
+//------------------------------------------------
+BigEndian();
+uint FileSize;
+
+LittleEndian();
+
+int Version;
+uint Count;
+uint64 FirstPointer <hidden= true>;
+
+local int Pos;
+
+
+struct{
+uint64 costumeOffset <hidden= true>;
+Pos = FTell();
+FSeek(Pos - 8 + costumeOffset);
+string costumeString;
+FSeek(Pos);
+
+uint Index;
+uint PresetID;
+
+uint64 offset0<hidden= true>;
+Pos = FTell();
+FSeek(Pos - 8 + offset0);
+string messageId;
+FSeek(Pos);
+
+uint costumeIndex;
+uint Cost;
+uint64 unlockCondition;
+}Costume[Count] <optimize= false, read=Str("%s (%d)", costumeString, PresetID)>;
