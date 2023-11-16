@@ -1,0 +1,85 @@
+//------------------------------------------------
+//--- 010 Editor v13.0.1 Binary Template
+//
+//      File: characterSelectParam
+//   Authors: Hydra
+//   Version: 1.0
+//   Purpose: 
+//  Category: 
+// File Mask: 
+//  ID Bytes: 
+//   History: 
+//------------------------------------------------
+
+BigEndian();
+uint FileSize;
+
+LittleEndian();
+
+uint Version;
+uint Count;
+FSkip(8);
+
+local int Pos;
+
+
+struct{
+    uint64 CharacterCodeOffset <hidden = true>;
+    Pos = FTell();
+    FSeek(Pos + CharacterCodeOffset - 8);
+    string CharacterCode;
+    FSeek(Pos);
+    
+    uint PageIndex;
+    uint IconIndex;
+    uint64 CostumeIndex;
+
+    //Printf("CostumeIndex = %d\n", CostumeIndex);
+
+
+    uint64 MessageIdOffset <hidden = true>;
+    Pos = FTell();
+    FSeek(Pos + MessageIdOffset - 8);
+    string MessageIdCode;
+    FSeek(Pos);
+
+    uint64 duelPlayerCostumeIndex;
+    //Assert(unkk0 == 1);
+
+
+    uint64 MessageId2Offset <hidden = true>;
+    
+    Pos = FTell();
+    FSeek(Pos + MessageId2Offset - 8);
+    string MessageId2Code;
+    FSeek(Pos);
+    
+    uint64 AccessoryOffset <hidden = true>;
+    
+    Pos = FTell();
+    FSeek(Pos + AccessoryOffset - 8);
+    string AccessoryCode;
+    FSeek(Pos);
+    
+    
+    uint64 AnimationCodeOffset <hidden = true>;
+
+    Pos = FTell();
+    FSeek(Pos + AnimationCodeOffset - 8);
+    string AnimationCode;
+    FSeek(Pos);
+
+
+
+    float floats[60];
+
+
+    uint64 unkCodeOffset <hidden = true>;
+    Pos = FTell();
+    FSeek(Pos + unkCodeOffset - 8);
+    string unkCode;
+    FSeek(Pos);
+    
+    
+    
+}CharacterSelect[Count] <optimize=false, read= Str("%s (%s)",CharacterCode, AnimationCode)>;
