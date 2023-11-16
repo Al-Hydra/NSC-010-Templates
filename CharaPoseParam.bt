@@ -1,0 +1,44 @@
+//------------------------------------------------
+//--- 010 Editor v13.0.1 Binary Template
+//
+//      File: 
+//   Authors: 
+//   Version: 
+//   Purpose: 
+//  Category: 
+// File Mask: 
+//  ID Bytes: 
+//   History: 
+//------------------------------------------------
+BigEndian();
+uint FileSize;
+
+LittleEndian();
+
+int Version;
+uint Count;
+uint64 FirstPointer <hidden= true>;
+
+local int Pos;
+
+struct{
+    uint64 PoseOffset <hidden = true>;
+    Pos = FTell();
+    FSeek(Pos - 8 + PoseOffset);
+    string PoseString;
+    FSeek(Pos);
+    
+    uint Index; //Pose index in the file
+    uint unk;
+    uint PoseNumber; //Pose index per character
+    uint Cost;
+    
+    uint64 unk0; //Could be the preset ID
+    
+    if (unk0 == 450)
+    {
+        Printf("String = %s, unk0 = %d\n", PoseString, unk0);
+    }
+
+    
+}Pose[Count] <optimize= false, read = Str("%s (%d, %d, %d)",PoseString,Index, PoseNumber, unk0)>;
