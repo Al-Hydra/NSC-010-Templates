@@ -40,5 +40,5 @@ FSeek(Pos);
 
 uint costumeIndex;
 uint Cost;
-uint64 unlockCondition;
-}Costume[Count] <optimize= false, read=Str("%s (%d)", costumeString, PresetID)>;
+uint64 unk;
+}Costume[Count] <optimize= false, read=Str("%s (%d) %d", costumeString, PresetID, unk)>;
