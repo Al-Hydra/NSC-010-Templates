@@ -22,16 +22,11 @@ uint64 FirstPointer <hidden= true>;
 local int Pos;
 
 struct{
-    uint64 PoseOffset <hidden = true>;
-    Pos = FTell();
-    FSeek(Pos - 8 + PoseOffset);
-    string PoseString;
-    FSeek(Pos);
-    
-    uint Index; //Pose index in the file
-    uint PresetID;
-    uint PoseNumber; //Pose index per character
-    uint Cost;
-    uint64 unk;
+uint64 offset0;
+Pos = FTell();
+FSeek(Pos - 8 + offset0);
+string CharaCode;
+FSeek(Pos);
 
-}Pose[Count] <optimize= false, read = Str("%s (%d, %d)",PoseString,Index, PoseNumber)>;
+uint64 unk;
+}Tag[Count] <optimize=false, read= Str("%s (%d)", CharaCode, unk)>;
