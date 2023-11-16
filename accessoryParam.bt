@@ -1,0 +1,42 @@
+//------------------------------------------------
+//--- 010 Editor v13.0.1 Binary Template
+//
+//      File: 
+//   Authors: 
+//   Version: 
+//   Purpose: 
+//  Category: 
+// File Mask: 
+//  ID Bytes: 
+//   History: 
+//------------------------------------------------
+
+BigEndian();
+uint FileSize;
+
+LittleEndian();
+
+uint Version;
+uint Count;
+FSkip(8);
+
+local int Pos;
+
+struct{
+uint64 accCodeOffset <hidden = true>;
+Pos = FTell();
+FSeek(Pos + accCodeOffset - 8);
+string accCode;
+FSeek(Pos);
+
+uint unk;
+uint unk;
+uint unk;
+uint unk;
+uint unk;
+uint unk;
+uint unk;
+uint unk;
+uint unk;
+uint unk;
+}Accessory[Count] <optimize= false, read = accCode>;

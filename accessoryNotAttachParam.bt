@@ -1,0 +1,37 @@
+//------------------------------------------------
+//--- 010 Editor v13.0.1 Binary Template
+//
+//      File: 
+//   Authors: 
+//   Version: 
+//   Purpose: 
+//  Category: 
+// File Mask: 
+//  ID Bytes: 
+//   History: 
+//------------------------------------------------
+
+BigEndian();
+uint FileSize;
+
+LittleEndian();
+
+uint Version;
+uint Count;
+FSkip(8);
+
+local int Pos;
+
+struct{
+    uint64 CharaCodeOffset;
+    Pos = FTell();
+    FSeek(Pos + CharaCodeOffset - 8);
+    string CharaCode;
+    FSeek(Pos);
+    
+    uint64 accCodeOffset;
+    Pos = FTell();
+    FSeek(Pos + accCodeOffset - 8);
+    string accCode;
+    FSeek(Pos);
+}Accessory[Count] <optimize = false, read= Str("%s %s", CharaCode, accCode)>;
