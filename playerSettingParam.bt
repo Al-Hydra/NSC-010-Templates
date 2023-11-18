@@ -55,4 +55,4 @@ int unk1;
 
 Printf("unk1 = %d\n", unk1);
 
-}PlayerSetting[Count] <optimize= false, read= Str("%s", CharacterID)>;
+}PlayerSetting[Count] <optimize= false, read= Str("%s (%d)", CharacterID, presetID)>;

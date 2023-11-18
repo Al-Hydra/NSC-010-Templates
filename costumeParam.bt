@@ -17,13 +17,13 @@ LittleEndian();
 
 int Version;
 uint Count;
-uint64 FirstPointer <hidden= true>;
+uint64 FirstPointer <hidden= false>;
 
 local int Pos;
 
 
 struct{
-uint64 costumeOffset <hidden= true>;
+uint64 costumeOffset <hidden= false>;
 Pos = FTell();
 FSeek(Pos - 8 + costumeOffset);
 string costumeString;
@@ -32,13 +32,13 @@ FSeek(Pos);
 uint Index;
 uint PresetID;
 
-uint64 offset0<hidden= true>;
+uint64 offset0<hidden= false>;
 Pos = FTell();
 FSeek(Pos - 8 + offset0);
 string messageId;
 FSeek(Pos);
 
-uint costumeIndex;
+uint ItemType;
 uint Cost;
-uint64 unk;
-}Costume[Count] <optimize= false, read=Str("%s (%d) %d", costumeString, PresetID, unk)>;
+uint64 UnlockCondition;
+}Costume[Count] <optimize= false, read=Str("%s (%d) %d", costumeString, PresetID, UnlockCondition)>;

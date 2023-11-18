@@ -35,7 +35,7 @@ struct{
     FSeek(Pos);
     
     uint Index;
-    uint Price;
+    uint Cost;
     
     uint64 AccessoryIconOffset <hidden = true>;
     Pos = FTell();
@@ -55,7 +55,6 @@ struct{
     int unk4;
     int unk5;
     int unk6;
-    int64 unk7;
+    int64 UnlockCondition;
     
-    Printf("Price = %d\n", unk7);
 }Accessory[Count] <optimize = false, read= Str("%s %s %s",AccessoryId, MessageId, AccessoryCode)>;

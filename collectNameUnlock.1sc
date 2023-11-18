@@ -1,0 +1,26 @@
+//------------------------------------------------
+//--- 010 Editor v13.0.1 Script File
+//
+//      File: 
+//   Authors: 
+//   Version: 
+//   Purpose: 
+//  Category: 
+//   History: 
+//------------------------------------------------
+
+local int i = 0;
+while (exists(Name[i]))
+{
+    Name[i].UnlockCondition = 1;
+    Name[i].unk3 = 1;
+    Name[i].unk4 = 1;
+    Name[i].unk5 = 1;
+    Name[i].unk6 = 1;
+    Name[i].unk7 = 1;
+    Name[i].unk8 = 1;
+    Name[i].unk9 = 1;
+    Name[i].unk10 = 1;
+    
+    i++;
+}
