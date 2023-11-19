@@ -1,0 +1,17 @@
+//------------------------------------------------
+//--- 010 Editor v13.0.1 Script File
+//
+//      File: 
+//   Authors: 
+//   Version: 
+//   Purpose: 
+//  Category: 
+//   History: 
+//------------------------------------------------
+local int i = 0;
+while (exists(Chat[i]))
+{
+    Chat[i].Cost = 0;
+    Chat[i].UnlockCondition = 1;
+    i++;
+}
