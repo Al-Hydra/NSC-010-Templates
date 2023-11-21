@@ -1,0 +1,66 @@
+//------------------------------------------------
+//--- 010 Editor v13.0.1 Binary Template
+//
+//      File: 
+//   Authors: 
+//   Version: 
+//   Purpose: 
+//  Category: 
+// File Mask: 
+//  ID Bytes: 
+//   History: 
+//------------------------------------------------
+BigEndian();
+uint FileSize;
+
+LittleEndian();
+
+int Version;
+uint Count;
+FSkip(8);
+local int Pos;
+
+struct{
+int64 offset;
+Pos = FTell();
+FSeek(Pos + offset - 8);
+string string0;
+FSeek(Pos);
+
+int64 unk0;
+int64 unk1;
+int64 unk2;
+int unk3;
+int unk4;
+int64 offset;
+Pos = FTell();
+FSeek(Pos + offset - 8);
+string string1;
+FSeek(Pos);
+
+int64 offset;
+Pos = FTell();
+FSeek(Pos + offset - 8);
+string string2;
+FSeek(Pos);
+
+uint unk5;
+uint unk6;
+
+int64 offset;
+Pos = FTell();
+FSeek(Pos + offset - 8);
+string string3;
+FSeek(Pos);
+
+int64 offset;
+Pos = FTell();
+FSeek(Pos + offset - 8);
+string string4;
+FSeek(Pos);
+
+uint unk7;
+uint unk8;
+
+
+}abc[Count] <optimize = false>;

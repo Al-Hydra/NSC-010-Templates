@@ -31,7 +31,6 @@ FSeek(Pos - 8 + Pathoffset);
 string Path;
 FSeek(Pos);
 
-//I need to know what these 3 values do
 uint AwakeningModelFlag;
 uint ClonesFlag;
 uint64 ClonesCount;
