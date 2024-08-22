@@ -17,18 +17,18 @@ LittleEndian();
 
 int Version;
 uint Count;
-uint64 FirstPointer <hidden= true>;
+uint64 FirstPointer <hidden= false>;
 local int Pos;
 
 struct{
-uint64 CardSkinOffset <hidden = true>;
+uint64 CardSkinOffset <hidden = false>;
 Pos = FTell();
 FSeek(Pos - 8 + CardSkinOffset);
 string CardSkinString;
 FSeek(Pos);
 
 
-uint64 Offset0 <hidden = true>;
+uint64 Offset0 <hidden = false>;
 Pos = FTell();
 FSeek(Pos - 8 + Offset0);
 string string0;
@@ -38,25 +38,25 @@ FSeek(Pos);
 uint Index; // in file
 uint OugiIndex;
 
-uint64 Offset2 <hidden = true>;
+uint64 Offset2 <hidden = false>;
 Pos = FTell();
 FSeek(Pos - 8 + Offset2);
 string ImageName;
 FSeek(Pos);
 
-uint64 Offset3 <hidden = true>;
+uint64 Offset3 <hidden = false>;
 Pos = FTell();
 FSeek(Pos - 8 + Offset3);
 string XfbinPath;
 FSeek(Pos);
 
-uint64 Offset4 <hidden = true>;
+uint64 Offset4 <hidden = false>;
 Pos = FTell();
 FSeek(Pos - 8 + Offset4);
 string ImageName2;
 FSeek(Pos);
 
-uint64 Offset5 <hidden = true>;
+uint64 Offset5 <hidden = false>;
 Pos = FTell();
 FSeek(Pos - 8 + Offset5);
 string ImageName3;
@@ -64,18 +64,27 @@ FSeek(Pos);
 
 uint Cost;
 uint UnlockCondition;
+int unk;
+int unk2;
 
-uint64 Offset6 <hidden = true>;
+int64 Offset6 <hidden = false>;
 Pos = FTell();
 FSeek(Pos - 8 + Offset6);
 string string6;
 FSeek(Pos);
 
-uint64 Offset7 <hidden = true>;
+uint64 Offset7 <hidden = false>;
 Pos = FTell();
 FSeek(Pos - 8 + Offset7);
 string string7;
 FSeek(Pos);
+/*
+uint64 Offset8 <hidden = false>;
+Pos = FTell();
+FSeek(Pos - 8 + Offset8);
+string string8;
+FSeek(Pos);
+*/
 }OugiFinish[Count]<optimize= false, read= CardSkinString>;
 
 /*

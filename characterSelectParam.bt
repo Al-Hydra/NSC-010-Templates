@@ -26,7 +26,7 @@ local int Count2 = 0;
 
 
 struct{
-    uint64 CharacterCodeOffset <hidden = false>;
+    uint64 CharacterCodeOffset <hidden = true>;
     Pos = FTell();
     FSeek(Pos + CharacterCodeOffset - 8);
     string CharacterCode;
@@ -39,7 +39,7 @@ struct{
     //Printf("CostumeIndex = %d\n", CostumeIndex);
 
 
-    uint64 MessageIdOffset <hidden = false>;
+    uint64 MessageIdOffset <hidden = true>;
     Pos = FTell();
     FSeek(Pos + MessageIdOffset - 8);
     string MessageIdCode;
@@ -49,14 +49,14 @@ struct{
     //Assert(unkk0 == 1);
 
 
-    uint64 MessageId2Offset <hidden = false>;
+    uint64 MessageId2Offset <hidden = true>;
     
     Pos = FTell();
     FSeek(Pos + MessageId2Offset - 8);
     string MessageId2Code;
     FSeek(Pos);
     
-    uint64 AccessoryOffset <hidden = false>;
+    uint64 AccessoryOffset <hidden = true>;
     
     Pos = FTell();
     FSeek(Pos + AccessoryOffset - 8);
@@ -64,7 +64,7 @@ struct{
     FSeek(Pos);
     
     
-    uint64 AnimationCodeOffset <hidden = false>;
+    uint64 AnimationCodeOffset <hidden = true>;
 
     Pos = FTell();
     FSeek(Pos + AnimationCodeOffset - 8);
@@ -76,17 +76,19 @@ struct{
     float floats[60];
 
 
-    uint64 DictionaryCodeOffset <hidden = false>;
+    uint64 DictionaryCodeOffset <hidden = true>;
     Pos = FTell();
     FSeek(Pos + DictionaryCodeOffset - 8);
     string DictionaryCode;
     FSeek(Pos);
+
+    int64 DictionaryIndex;
     
-/*
-    Count2 += 1;
-    if (CharacterCode == "7skr00")
+
+    if (CharacterCode == "9hgr00")  
     {
         Printf("FOUND at Index = %d", Count2);
     }
-    */
-}CharacterSelect[Count] <optimize=false, read= Str("%s (%s)",CharacterCode, DictionaryCode)>;
+    Count2 += 1;
+    
+}CharacterSelect[Count] <optimize=false, read= Str("%s (%s)  %d",CharacterCode, DictionaryCode, DictionaryIndex)>;
